@@ -1,24 +1,18 @@
 stairs_nums=int(input())
-stairs=[]
+stairs=[0]*301
 for i in range(stairs_nums):
-    stair=int(input())
-    stairs.append(stair)
-stairs.reverse()
+    stairs[i]=int(input())
 
-max_value=[0]*stairs_nums 
 
-def find_max_value(stair_index,move_length):
-    if(stair_index<0):
-        return 0
-    if(max_value[stair_index]>0):
-        return max_value[stair_index]
-    if(move_length==1):
-        max_value[stair_index]=find_max_value(stair_index-2,2)+stairs[stair_index]
-        return max_value[stair_index]
-    else:
-        max_value[stair_index]= max(find_max_value(stair_index-1,1),find_max_value(stair_index-2,2))+stairs[stair_index]
-        return max_value[stair_index]
+max_value=[0]*301
 
-print(find_max_value(stairs_nums-1,0))
+max_value[0]=stairs[0]
+max_value[1]=stairs[0]+stairs[1]
+max_value[2]=max(stairs[1]+stairs[2],stairs[0]+stairs[2])
 
+for i in range(3,stairs_nums):
+    max_value[i]=max(stairs[i-1]+max_value[i-3],max_value[i-2])+stairs[i]
+
+print(max_value[stairs_nums-1])
+    
         
