@@ -2,8 +2,9 @@ cases=int(input())
 sequences=list(map(int,input().split(" ")))
 lis=[1]*cases
 
-for i in range(1,cases):
-    for j in range(i):
-        if(sequences[j]<sequences[i]):
-            lis[i]=max(lis[i],lis[j]+1)
+for i in range(cases):
+    for j in range(i+1,cases):
+        if(sequences[j]>sequences[i]):
+            lis[j]=max(lis[i]+1,lis[j])
+
 print(max(lis))
