@@ -1,7 +1,7 @@
-input() 
-a=0 
-for i in [*sorted(map(int,input().split()))]: 
-    if a+1<i:break 
-    a+=i 
-print(a+1)
+import sys
 
+n,k=map(int,sys.stdin.readline().split())
+s=""
+for i in range(n+1):
+    s+=str(i)
+print(s[k])
