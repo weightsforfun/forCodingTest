@@ -1,5 +1,5 @@
 import sys
-
+                     # 탐욕으로 풀었으나 dp bfs둘다 가능했었음
 n=int(sys.stdin.readline())
 arr=list(map(int,sys.stdin.readline().split(" ")))
 count=0
