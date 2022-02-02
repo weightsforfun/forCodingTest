@@ -1,7 +1,7 @@
-import sys
-
-n,k=map(int,sys.stdin.readline().split())
-s=""
-for i in range(n+1):
-    s+=str(i)
-print(s[k])
+a=(66+(13.7*66)+(5*173.6)-(6.8*24))
+print(a*1.55)
+b=(a*1.55)*1.1
+print(b)
+print((b*0.5)/4,(b*0.3)/4,(b*0.2)/9)
+print(1.6*66)
+print("햇반 5공기")
