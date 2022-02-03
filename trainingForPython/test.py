@@ -1,7 +1,7 @@
-a=(66+(13.7*66)+(5*173.6)-(6.8*24))
-print(a*1.55)
-b=(a*1.55)*1.1
-print(b)
-print((b*0.5)/4,(b*0.3)/4,(b*0.2)/9)
-print(1.6*66)
-print("햇반 5공기")
+num =int(input())
+data=[i for i in range(num+1)]
+
+for i in range(7,num+1):
+    data[i]=max(data[i-3]*2, data[i-4]*3, data[i-5]*4)
+
+print(data[num])
