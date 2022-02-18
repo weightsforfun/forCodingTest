@@ -14,9 +14,9 @@ def dfs(index):
             break
         if(index==arr[index]):    ## 여기서 자기 자신을 고른 사람을 발견하면 valid에 1을 넣어준다  팀이라는거니까
             valid[index]=1
-            for i in dic:
+            for i in dic: 
                 valid[i]=-1
-            break
+            break  
         if(index in dic):  ## 이곳은 만약 쭉 따라가다가 중복되는 인원이 발견 됬다는것은 어딘가에서 팀이 만들어진 것이므로 그 중복이 시작한 사람부터
             while(True):    ## 하나씩 돌면서 valid에 1을 넣어준다
                 if(valid[index]==1):    ## 돌다가 valid에 1을 넣은 index가 나왔다는것은 한바퀴 돌았다는것이므로 나와준다
