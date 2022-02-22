@@ -9,7 +9,7 @@ move=[[1,-1,0,0],[0,0,1,-1]]
 
 answers=[]
 
-def bfs(x,y):             ## 방문체크하고 4방향으로 방문여부 범위 여부 체크하고 통과되면 재귀함수로 들어감
+def dfs(x,y):             ## 방문체크하고 4방향으로 방문여부 범위 여부 체크하고 통과되면 재귀함수로 들어감
     global arr
     global move
     global m
@@ -22,7 +22,7 @@ def bfs(x,y):             ## 방문체크하고 4방향으로 방문여부 범�
         if(0<=next_x<n and 0<=next_y<m):
             if(arr[next_y][next_x]==0):
                 answer+=1
-                bfs(next_x,next_y)
+                dfs(next_x,next_y)
     
 for i in range(k):           ## 직사각형 부분 -1로 만들어서 탐색할때 걸러줌
     xy=list(map(int,input().split(" ")))     ## 꼭짓점 좌표 
@@ -35,7 +35,7 @@ for i in range(m):         ## 전부 돌아보면서 방문 안한 노드일때 
         if(arr[i][j]==0):
             answer=1
             arr[i][j]=1
-            bfs(j,i)
+            dfs(j,i)
             answers.append(answer)      ## 영역 넓이 리스트에 넣어줌
 print(len(answers))
 for i in sorted(answers):

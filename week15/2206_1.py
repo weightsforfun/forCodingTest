@@ -11,8 +11,7 @@ que=deque([[0,0,0,1]])## x,y,break,distance
 move=[[1,0,-1,0],[0,1,0,-1]]
 distance=0
 flag=0
-
-
+                          
 while(que):
     item=que.popleft()
     x=item[0]
