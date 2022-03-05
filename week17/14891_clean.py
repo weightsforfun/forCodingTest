@@ -29,29 +29,24 @@ for i in range(4):                    ## gears에다가 각각 deque생성해서
     gears.append(gear)
 
 k=int(input())
+
 for i in range(k):
     gearIndex,clockwise=map(int,input().split(" "))
     isPoleSame=[0,0,0]
     for i in range(3):
         if(gears[i][2]==gears[i+1][6]):
             isPoleSame[i]=1
-    if(gearIndex==1):
-        gears[0].rotate(clockwise)
-        checkRight(0,clockwise,isPoleSame,gears)
-    elif(gearIndex==4):
-        gears[3].rotate(clockwise)
-        checkLeft(3,clockwise,isPoleSame,gears)
-    else:
-        gears[gearIndex-1].rotate(clockwise)
-        checkLeft(gearIndex-1,clockwise,isPoleSame,gears)
-        checkRight(gearIndex-1,clockwise,isPoleSame,gears)
+    gears[gearIndex-1].rotate(clockwise)
+    checkLeft(gearIndex-1,clockwise,isPoleSame,gears)
+    checkRight(gearIndex-1,clockwise,isPoleSame,gears)
         
 answer=0
 for i in range(4):
     if(gears[i][0]==1):
         answer+=2**i 
 print(answer)
-
+## 알고리즘은 간단했음 구현문제인듯 처음에 톱니바퀴 4개여서 그냥 모든 경우의수 건드려줄까 하다가 그냥 left right함수 만들어서 
+## 쭉 탐색하게함 톱니바퀴 개수가 늘어나도 구현할수있게
 
 
     
