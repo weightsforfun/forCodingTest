@@ -1,4 +1,5 @@
-a="ad"
-b="cd"
-a+=b
-print(a)
+def a():
+    return 1,2
+
+c,d=a()
+print(c,d)
