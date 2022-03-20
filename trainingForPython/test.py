@@ -1,5 +1,2 @@
-def a():
-    return 1,2
-
-c,d=a()
-print(c,d)
+print((2-4))
+print((-2)%3)
