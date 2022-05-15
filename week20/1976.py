@@ -1,6 +1,5 @@
 import sys
 input=sys.stdin.readline
-
 n=int(input())
 m=int(input())
 
@@ -20,6 +19,8 @@ def dfs(start,destination):
     if(start==destination):
         flag=1
     for i in range(n):
+        if(flag==1):
+            return
         if(arr[start][i]==1):
             if(visited[i]==0):
                 if(destination==i):
@@ -36,6 +37,8 @@ for i in range(m-1):
     flag=0
     dfs(plan[i]-1,plan[i+1]-1)
     if(flag==1):
+        arr[plan[i]-1][plan[i+1]-1]=1
+        arr[plan[i+1]-1][plan[i]-1]=1
         continue
     else:
         print("NO")
