@@ -1,12 +1,12 @@
-def longestPalindrome(s: str) -> str:
+class Solution:
+    def longestPalindrome(self, s: str) -> str:
         answer=""
         #odd
         for i in range(len(s)):
-            if(len(s)==0):
+            if(len(answer)==0):
                 answer=s[i]
             l,r=i-1,i+1
             while(l>=0 and r<=len(s)-1):
-                    print(l,r)
                     if(s[l]!=s[r]):
                         break
                     else:
