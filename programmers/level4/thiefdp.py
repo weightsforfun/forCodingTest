@@ -1,20 +1,14 @@
+def solution(money):
+    answer = 0
+    dp=[0]*(len(money))
+    dp[0]=money[0]
+    dp[1]=max(dp[0],money[1])
+    for i in range(2,len(money)):   
+        dp[i]=max(dp[i-2]+money[i],dp[i-1])
+    answer=dp[-1]
+    return answer
 
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+
 def solution(money):
     answer = 0
     dp=[0]*(len(money))
