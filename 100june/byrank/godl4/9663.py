@@ -9,20 +9,42 @@ def check(x):
             return False
     return True
 
-def dfs(row):
+def dfs(column):
     global answer
     global arr
     
-    if(row==n):
+    if(column==n):
         answer+=1
         return
     
     for i in range(n):
-        arr[row]=i
-        if(check(row)):
-            dfs(row+1)
+        arr[column]=i
+        if(check(column)):
+            dfs(column+1)
         
         
 dfs(0)
 print(answer)
     
+
+
+##############################################################################################################    
+ 
+n=int(input())
+col, slash, backSlash = [False] * n, [False] * (2 * n - 1), [False] * (2 * n - 1)
+count=0
+
+
+def put_queen(column):
+    global count
+    for j in range(0,n):
+          if not (col[j] or slash[column + j] or backSlash[column - j + n - 1]):
+            if(column==n-1):
+                count=count+1
+            else:
+                 col[j] = slash[column + j] = backSlash[column - j + n - 1] = True
+                 put_queen(column + 1)
+                 col[j] = slash[column + j] = backSlash[column - j + n - 1] = False
+
+put_queen(0)
+print(count)
