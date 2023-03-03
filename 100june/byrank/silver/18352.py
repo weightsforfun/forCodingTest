@@ -1,11 +1,13 @@
 from collections import defaultdict,deque
 import sys
 input=sys.stdin.readline
+
 n,m,k,x=map(int,input().split())
 distance=[-1]*(n+1)
 distance[x]=0
 dic=defaultdict(list)
 que=deque([x])
+
 for _ in range(m):
     start,end=map(int, input().split())
     dic[start].append(end)
