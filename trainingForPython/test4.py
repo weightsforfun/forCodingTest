@@ -1,39 +1,16 @@
-import random
-import time
-exchange=0
-def heapify(arr, n, i):
-    global exchange
-    count = 0
-    largest = i  
-    l = 2 * i + 1     
-    r = 2 * i + 2     
-    if l < n and arr[i] < arr[l]:
-        largest = l
-    if r < n and arr[largest] < arr[r]:
-        largest = r
-    if largest != i:
-        count += 1
-        arr[i],arr[largest] = arr[largest],arr[i]
-        exchange+=1
-        count += heapify(arr, n, largest)
-    return count
-
-def heapSort(arr):
-    n = len(arr)
-    count = 0
-    for i in range(n, -1, -1):
-        heapify(arr, n, i)  
-        count += heapify(arr, i, 0)
-    for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i] 
-        count += heapify(arr, i, 0)
-    return count
-arr=[100,200,500,1000,2000,3000,4000,5000]
-for i in arr:
-    arrq = [x for x in range(i)]
-    random.shuffle(arrq)
-    exchange=0
-    starth_time = time.time()
-    print(heapSort(arrq),exchange)
-    timeq = time.time() - starth_time
-    print("timeq:",timeq)
+arr=[1,3,5,10,14,17,18,19,23]
+def binary_search(start,end,target):
+    global arr
+    while(start<=end):
+        mid=(start+end)//2
+        print("start",start,"end:",end,"mid:",mid,"arr[mid]:",arr[mid])
+        if(target==arr[mid]):
+            return mid
+        elif(target<arr[mid]):
+            end=mid-1
+        else:
+            start=mid+1
+    print(start,end,mid)
+    return start
+binary_search(0,len(arr)-1,11)
+    
