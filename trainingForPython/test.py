@@ -1,15 +1,10 @@
-cases=int(input())
-lines=[[0 for i in range(2)] for i in range(cases)]
-lis=[1]*cases
-for i in range(cases):
-    a,b=input().split(" ")
-    lines[i][0]=int(a)
-    lines[i][1]=int(b)
-lines.sort()
-print(lines)
-for i in range(len(lines)):
-    for j in range(i):
-        if(lines[j][1]<lines[i][1]):
-            lis[i]=max(lis[i],lis[j]+1)
-        print("i:",i,"j:",j,"list:",lis)
-print(cases-max(lis))
+math_score=95
+if(math_score>90):
+    print("Excellent")
+elif(80<math_score<=90):
+    print("Good")
+else:
+    print("satisfactory")    
+###1. True
+###2. print안에있는 ""가 문법과 일치하지 않는 쌍따옴표이여서.
+###3.  
