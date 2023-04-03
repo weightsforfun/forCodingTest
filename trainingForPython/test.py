@@ -1,10 +1,13 @@
-math_score=95
-if(math_score>90):
-    print("Excellent")
-elif(80<math_score<=90):
-    print("Good")
-else:
-    print("satisfactory")    
-###1. True
-###2. print안에있는 ""가 문법과 일치하지 않는 쌍따옴표이여서.
-###3.  
+a=[10,15,25,26,33,48,62]
+print(a[1],a[5])
+
+my_lecture=["aiX머신러닝","고급데베","취업진로 세미나","소프트웨어 공학","데이터베이스 기초","블록체인 혁명의시작","ICT융합캡스톤디자인1"]
+print(len(my_lecture))
+
+menu={}
+menu["사이다"]="1200원"
+menu["치킨"]="16000원"
+menu["샐러드"]="8000원"
+menu["세트메뉴"]="23000원"
+
+print(menu)
