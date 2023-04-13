@@ -1,13 +1,17 @@
-a=[10,15,25,26,33,48,62]
-print(a[1],a[5])
+import matplotlib.pyplot as plt
 
-my_lecture=["aiX머신러닝","고급데베","취업진로 세미나","소프트웨어 공학","데이터베이스 기초","블록체인 혁명의시작","ICT융합캡스톤디자인1"]
-print(len(my_lecture))
+t = [0, 1, 2, 3, 4, 5, 6]
+y = [1, 4, 5, 8, 9, 5, 3]
 
-menu={}
-menu["사이다"]="1200원"
-menu["치킨"]="16000원"
-menu["샐러드"]="8000원"
-menu["세트메뉴"]="23000원"
+plt.figure(figsize=(10, 6))
 
-print(menu)
+plt.xlim(0, 8)
+plt.ylim(0, 10)
+
+
+plt.plot(t, y, marker='o', markersize=15, color='red', linewidth=6)
+
+
+
+
+plt.show()
