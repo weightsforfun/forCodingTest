@@ -1,17 +1,17 @@
-import matplotlib.pyplot as plt
-
-t = [0, 1, 2, 3, 4, 5, 6]
-y = [1, 4, 5, 8, 9, 5, 3]
-
-plt.figure(figsize=(10, 6))
-
-plt.xlim(0, 8)
-plt.ylim(0, 10)
+def printNum(*args):
+    for arg in args:
+        print(arg)
 
 
-plt.plot(t, y, marker='o', markersize=15, color='red', linewidth=6)
+printNum(1, 3, 4, 6)
 
+printNum(6, 7, 9)
 
+printNum(9, 10)
 
+def times_table(num):
+    for i in range(1,10):
+        print(num*i)
+times_table(3)
 
-plt.show()
+times_table(7)
