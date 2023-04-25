@@ -1,0 +1,20 @@
+n=int(input())
+arr=list(map(int,input().split()))
+start=0
+end=n-1
+ph=2000000001
+answer_start=0
+answer_end=0
+arr.sort()
+while(end>start):
+    if(abs(ph)>abs((arr[start]+arr[end]))):
+        answer_start=arr[start]
+        answer_end=arr[end]
+        ph=arr[start]+arr[end]
+    if(arr[start]+arr[end]>0):
+        end-=1
+    elif(arr[start]+arr[end]<0):
+        start+=1
+    else:
+        break
+print(answer_start,answer_end)
