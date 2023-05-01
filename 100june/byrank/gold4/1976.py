@@ -19,15 +19,14 @@ def merge(u,v):
     v=find(v)
     if(u!=v):
         if(u<v):
-            parent[u]=v
-        else:
             parent[v]=u
+        else:
+            parent[u]=v
 
 for i in range(n):
     for j in range(n):
         if(arr[i][j]==1):
             merge(i,j)
-            print(parent)
 
 route=list(map(int,input().split()))
 fail=0
