@@ -45,11 +45,12 @@ def two(nodes):
     result=[[0] * n for _ in range(n)]
     for node in nodes:
         i,j=node[0],node[1]
-        for move in moves:
-            x=j+move[0]+1
-            y=i+move[1]+1
-            if(seat[y][x]==0):
-                result[i][j]+=1
+        if(seat[i+1][j+1]==0):
+            for move in moves:
+                x=j+move[0]+1
+                y=i+move[1]+1
+                if(seat[y][x]==0):
+                    result[i][j]+=1
     maximum=0
     for i in range(n):
         maximum=max(max(result[i]),maximum)
