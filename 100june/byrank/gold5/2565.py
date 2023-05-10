@@ -26,3 +26,6 @@ for i in range(n):
     dp[start]=1+max_count
 
 print(n-max(dp.values()))
+
+
+
