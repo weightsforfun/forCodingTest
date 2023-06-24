@@ -60,7 +60,7 @@ def get_result_pd(models,X_train,y_train,X_test,y_test):
         tmp.append(get_result(models[key],X_train,y_train,X_test,y_test))
     return pd.DataFrame(tmp,columns=col_names,index=list(models.keys()))
 
-# results=get_result_pd(models,X_train,y_train,X_test,y_test)
+# results=get_result_pd(models,X_train,y_train,X_test,y_test)    jupyter notebook에서 같이 실행하면 이전 이미지가 사라져서 실행코드를 주석처리 했습니다.
 # results
 
 # 선택한 모델의 ROC Curve와 Precision-Recall Curve 출력
@@ -81,7 +81,7 @@ def draw_roc_curve_recall_curve(model,X_test,y_test):
 
 for model_name, model in models.items():
     model.fit(X_train, y_train)
-# draw_roc_curve_recall_curve('Random Forest',X_test,y_test)
+# draw_roc_curve_recall_curve('Random Forest',X_test,y_test)  jupyter notebook에서 같이 실행하면 이전 이미지가 사라져서 실행코드를 주석처리 했습니다.
 
 # GridSearchCV를 사용한 성능 개선 (Decision Tree)
 def get_result_with_advancedModel(models,X_train,y_train,X_test,y_test):
@@ -103,15 +103,20 @@ def get_result_with_advancedModel(models,X_train,y_train,X_test,y_test):
     return pd.DataFrame(tmp,columns=col_names,index=list(models.keys())+["Advanced Decision Tree"])
     
 
-# ad_results=get_result_with_advancedModel(models,X_train,y_train,X_test,y_test)
-# ad_results
+# ad_results=get_result_with_advancedModel(models,X_train,y_train,X_test,y_test)  jupyter notebook에서 같이 실행하면 이전 이미지가 사라져서 실행코드를 주석처리 했습니다.
+# ad_results  
 
 
 #  Feature Importance 확인
-importance = models["Decision Tree"].feature_importances_
+
+param_grid = {'max_depth':[3,5,7], 'min_samples_split':[2,3]}
+grid_search = GridSearchCV(models['Random Forest'], param_grid=param_grid, cv=3,refit=True) # Random Forest 로 grid 실행
+grid_search.fit(X_train, y_train)
+best_model = grid_search.best_estimator_
+importance = best_model.feature_importances_   # Feature Importance 추출
 feature_names = iris.feature_names
 
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 6)) # 그래프 형태로 출력
 plt.barh(feature_names, importance)
 plt.xlabel('Feature Importance')
 plt.ylabel('Features')
