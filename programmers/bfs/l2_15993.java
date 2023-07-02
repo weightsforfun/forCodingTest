@@ -26,20 +26,30 @@ class Solution {
                 }
             }
         }
-        
+        int first=bfs(start[0],start[1],'L',maps);
+        if(first==-1){
+            return -1;
+        }
+        int second=bfs(lever[0],lever[1],'E',maps);
+        if(second==-1){
+            return -1;
+        }
+        return first+second;
+ 
+    }
+    public int bfs(int start_y,int start_x,char Des,String [] maps){
         Deque<int []> deq=new ArrayDeque<>();
         int [][] visited=new int[n][m];
         
-        deq.offerLast(new int []{start[0],start[1],0});
+        deq.offerLast(new int []{start_y,start_x,0});
         
         while(!deq.isEmpty()){
             int [] current=deq.pollFirst();
             int y=current[0];
             int x=current[1];
             int count=current[2];
-            if(y==lever[0] && x==lever[1]){
-                answer+=count;
-                break;
+            if(maps[y].charAt(x)==Des){
+                return count;
             }
             for(int i=0;i<4;i++){
                 int dy=move[i][0];
@@ -54,44 +64,7 @@ class Solution {
             }
             
         }
-        if(answer==0){
-            return -1;
-        }
-        
-        deq.clear();
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
-                visited[i][j]=0;
-            }
-        }
-        
-        deq.offerLast(new int []{lever[0],lever[1],0});
-        while(!deq.isEmpty()){
-            int [] current=deq.pollFirst();
-            int y=current[0];
-            int x=current[1];
-            int count=current[2];
-            if(y==end[0] && x==end[1]){
-                answer+=count;
-                return answer;
-            }
-            for(int i=0;i<4;i++){
-                int dy=move[i][0];
-                int dx=move[i][1];
-                int ny=y+dy;
-                int nx=x+dx;
-                if(ny>=0 && ny<n && nx>=0 && nx<m && maps[ny].charAt(nx)!='X'
-                   && visited[ny][nx]==0){
-                    deq.offerLast(new int[]{ny,nx,count+1});
-                    visited[ny][nx]=1;
-                }
-            }
-            
-        }
-        
-        
-        
-        
         return -1;
+
     }
 }
